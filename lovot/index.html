@@ -5,10 +5,16 @@
   <title>最小限のデモ</title>
   <script src="../blockly_compressed.js"></script>
   <script src="../blocks_compressed.js"></script>
+  <script src="../javascript_compressed.js"></script>
   <script src="../msg/js/ja.js"></script>
 </head>
 <body>
   <h1>デモ</h1>
+
+  <p>
+    <button onclick="showCode()">Show JavaScript</button>
+    <button onclick="runCode()">Run JavaScript</button>
+  </p>
 
   <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
 
@@ -27,6 +33,20 @@
     {
       toolbox: document.getElementById('toolbox')
     });
+
+    function showCode() {
+      var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+      alert(code);
+    }
+
+    function runCode() {
+      var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+      try {
+        eval(code);
+      } catch (e) {
+        alert(e);
+      }
+    }
   </script>
 
 </body>
