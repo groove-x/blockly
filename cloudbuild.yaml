@@ -1,0 +1,4 @@
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy", "-q", "appengine", "--project", "gx-blockly"]
+timeout: "1600s"
